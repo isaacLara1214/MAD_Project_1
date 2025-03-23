@@ -74,6 +74,26 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
+
+            const SizedBox(height: 20),
+            const Divider(color: Colors.black, thickness: 1),
+            const SizedBox(height: 20),
+
+            const Text("Guided Exercise", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            _buildNavigationBox(context, "Start Breathing Exercise", () {}),
+
+            const SizedBox(height: 20),
+
+            const Text("Mood Tracker", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            _buildNavigationBox(context, "Track My Mood", () {}),
+
+            const SizedBox(height: 20),
+
+            const Text("Journal", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            _buildNavigationBox(context, "Write in My Journal", () {}),
           ],
         ),
       ),
