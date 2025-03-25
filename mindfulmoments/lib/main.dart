@@ -33,12 +33,11 @@ class MyHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0), 
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-
             Center(
               child: Text(
                 "Welcome to Mindful Moments",
@@ -49,9 +48,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 20),
-
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
@@ -74,24 +71,21 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
             const Divider(color: Colors.black, thickness: 1),
             const SizedBox(height: 20),
-
-            const Text("Guided Exercise", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text("Guided Exercise",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
             _buildNavigationBox(context, "Start Breathing Exercise", () {}),
-
             const SizedBox(height: 20),
-
-            const Text("Mood Tracker", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text("Mood Tracker",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
             _buildNavigationBox(context, "Track My Mood", () {}),
-
             const SizedBox(height: 20),
-
-            const Text("Journal", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text("Journal",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
             _buildNavigationBox(context, "Write in My Journal", () {}),
           ],
@@ -100,7 +94,6 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildNavigationBox(BuildContext context, String text, VoidCallback onTap) {
-    
-  }
+  Widget _buildNavigationBox(
+      BuildContext context, String text, VoidCallback onTap) {}
 }

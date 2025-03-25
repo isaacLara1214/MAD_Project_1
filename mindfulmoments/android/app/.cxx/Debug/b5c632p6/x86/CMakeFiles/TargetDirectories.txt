@@ -1,0 +1,2 @@
+/Users/isaaclara/Documents/GitHub/MAD_Project_1/mindfulmoments/android/app/.cxx/Debug/b5c632p6/x86/CMakeFiles/edit_cache.dir
+/Users/isaaclara/Documents/GitHub/MAD_Project_1/mindfulmoments/android/app/.cxx/Debug/b5c632p6/x86/CMakeFiles/rebuild_cache.dir
