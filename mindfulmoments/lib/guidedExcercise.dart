@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GuidedExcercisePage extends StatefulWidget {
-  const GuidedExcercisePage({Key? key, required this.title}) : super(key: key);
+  const GuidedExcercisePage({super.key, required this.title});
   final String title;
 
   @override

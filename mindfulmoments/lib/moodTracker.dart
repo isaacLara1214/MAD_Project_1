@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MoodTrackerPage extends StatefulWidget {
-  const MoodTrackerPage({Key? key, required this.title}) : super(key: key);
+  const MoodTrackerPage({super.key, required this.title});
   final String title;
 
   @override

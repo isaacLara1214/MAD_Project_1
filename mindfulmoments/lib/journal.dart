@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class JournalPage extends StatefulWidget {
-  const JournalPage({Key? key, required this.title}) : super(key: key);
+  const JournalPage({super.key, required this.title});
   final String title;
 
   @override

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mindfulmoments/guidedExcercise.dart';
-import 'package:mindfulmoments/moodTracker.dart';
-import 'package:mindfulmoments/journal.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
