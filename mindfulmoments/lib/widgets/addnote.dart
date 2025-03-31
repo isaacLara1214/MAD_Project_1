@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mindfulmoments/models/note.dart';
 import 'package:mindfulmoments/providers/notes_provider.dart';
-import 'package:mindfulmoments/repo/notesrepo.dart';
 import 'package:provider/provider.dart';
 
 class AddnoteScreen extends StatefulWidget {
