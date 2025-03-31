@@ -24,7 +24,7 @@ class ItemNote extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.red,
+                color: Theme.of(context).colorScheme.primary,
               ),
               child: Column(
                 children: [

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mindfulmoments/providers/notes_provider.dart';
 import 'package:mindfulmoments/repo/notesrepo.dart';
 import 'package:mindfulmoments/widgets/item_note.dart';
 import 'package:mindfulmoments/widgets/addnote.dart';
+import 'package:provider/provider.dart';
 
 class JournalPage extends StatefulWidget {
   const JournalPage({super.key, required this.title});
@@ -27,23 +29,19 @@ class _JournalPageState extends State<JournalPage> {
           ),
         ],
       ),
-      body: FutureBuilder(
-        future: Notesrepo.getNotes(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data == null || snapshot.data!.isEmpty) {
-              return const Center(
-                child: Text('No notes found. Start writing your first note!'),
-              );
-            }
-            return ListView(
-              padding: const EdgeInsets.all(15),
-              children: [
-                for (var note in snapshot.data!) ItemNote(note: note),
-              ],
-            );
-          }
-          return const SizedBox();
+      body: Consumer<NotesProvider>(
+        builder: (context, provider, child) {
+          return provider.notes.isEmpty
+              ? const Center(
+                  child: Text('No notes found. Start writing your first note'))
+              : ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  children: provider.notes
+                      .map((e) => ItemNote(
+                            note: e,
+                          ))
+                      .toList(),
+                );
         },
       ),
       floatingActionButton: FloatingActionButton(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mindfulmoments/models/note.dart';
+import 'package:mindfulmoments/providers/notes_provider.dart';
 import 'package:mindfulmoments/repo/notesrepo.dart';
+import 'package:provider/provider.dart';
 
 class AddnoteScreen extends StatefulWidget {
   final Note? note;
@@ -99,7 +101,8 @@ class _AddnoteScreenState extends State<AddnoteScreen> {
       description: _descriptionController.text,
       createdAt: DateTime.now(),
     );
-    await Notesrepo.insert(note: note);
+    Provider.of<NotesProvider>(context, listen: false)
+        .insert(note: note); // Update the provider
     Navigator.pop(context);
   }
 
@@ -110,13 +113,15 @@ class _AddnoteScreenState extends State<AddnoteScreen> {
       description: _descriptionController.text,
       createdAt: widget.note!.createdAt,
     );
-    await Notesrepo.update(note: note);
+    Provider.of<NotesProvider>(context, listen: false).update(note: note);
     Navigator.pop(context);
   }
 
   _deleteNote() async {
-    Notesrepo.delete(note: widget.note!).then((e) {
-      Navigator.pop(context);
-    });
+    Provider.of<NotesProvider>(context, listen: false)
+        .delete(note: widget.note!)
+        .then((isDone) {
+      Navigator.pop(context); // Close the dialog
+    }); // Update the provider
   }
 }
