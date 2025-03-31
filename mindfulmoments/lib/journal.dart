@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mindfulmoments/providers/notes_provider.dart';
+import 'package:mindfulmoments/widgets/item_note.dart';
+import 'package:mindfulmoments/widgets/addnote.dart';
+import 'package:provider/provider.dart';
 
 class JournalPage extends StatefulWidget {
-  const JournalPage({Key? key, required this.title}) : super(key: key);
+  const JournalPage({super.key, required this.title});
   final String title;
 
   @override
@@ -14,14 +18,42 @@ class _JournalPageState extends State<JournalPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {}); // Refresh the notes
+            },
+          ),
+        ],
       ),
-      body: Center(
-        child: TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go Back'),
-        ),
+      body: Consumer<NotesProvider>(
+        builder: (context, provider, child) {
+          return provider.notes.isEmpty
+              ? const Center(
+                  child: Text('No notes found. Start writing your first note'))
+              : ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  children: provider.notes
+                      .map((e) => ItemNote(
+                            note: e,
+                          ))
+                      .toList(),
+                );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const AddnoteScreen(),
+              ));
+        },
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        child: const Icon(Icons.add),
       ),
     );
   }
